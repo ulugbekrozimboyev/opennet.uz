@@ -1,0 +1,67 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div>
+			<h2>Click hodisa</h2>
+			<img src="pic_bulboff.gif" onclick="changeImage(event)"/>
+		</div>
+		<div>
+			<h2>Hover hodisa</h2>
+			<img src="pic_bulboff.gif" id="second_light" />
+		</div>
+		<script type="text/javascript">
+		// rasm nomi, ushbu misolda rasmlar html file bilan bir joyda turibdi.
+		var imgOn = "pic_bulbon.gif";
+		var imgOff = "pic_bulboff.gif";
+		
+		/* imagening click hodisasi ishlagan payti chaqirilhan funksiya
+		   event haqida batafsil keyingi misolda so'z yuritamiz
+		   bu yerda event shu click bo'lgan image html elementining click hodisasi
+		*/
+		function changeImage(event) {
+		var image = event.currentTarget;
+		/* event.currentTarget bu click bo'lgan elementni o'zini qaytaradi */
+		
+		/* if da shu biz click qilgan imagening src attributi 
+		   'bulbon' so'zi bor yoki yo'qligiga tekshiryapti, oddiy aytganda:
+		   1 satr ichidan 2-satrni  qidirishga misolda.
+		   Nega aynan 'bulbon' ? - chunli etibor bergan bo'lsangiz
+		   yonib turgan (var imgOn) suratning nomida aynan shu so'z bor, imgOff da esa yo'q
+		*/
+			if (image.src.match("bulbon")) {
+				image.src = imgOff; // surat ochib turgan chiroq surati bilan almashtirilyapti
+			} else { 
+				image.src = imgOn;  // surat yonib turgan chiroq surati bilan almashtirilyapti
+			}
+		}
+		
+		var secondLight = document.getElementById('second_light');
+		
+		secondLight.onmouseover = mouseOver;  // suratning mouseover hodisasiga funksiya bog'lab qo'yildi
+		secondLight.onmouseout = mouseOut;    // suratning mouseout hodisasiga funksiya bog'lab qo'yildi
+		
+		function mouseOver(){
+		/* console.log("malumot"); yoki console.log('malumot'); - bu dasturchiga yordamchi funksiya
+		   u yordamida siz consolda loglarni chiqarib funksiyalar 
+		   qanday ishlayotgani haqida malumotga ega bo'lishingiz mumkin
+		*/
+			//console.log('biron bir xabar');
+			console.log('mouse over');
+			secondLight.src = imgOn;  // surat yonib turgan chiroq surati bilan almashtirilyapti
+		}
+		function mouseOut(){
+			console.log('mouse leave');
+			secondLight.src = imgOff;  // surat ochib turgan chiroq surati bilan almashtirilyapti
+		}
+		
+		</script>
+		<style type="text/css">
+			div {
+				width: 49%;
+				display:inline-block;
+				text-align: center;			
+			}
+		</style>
+	</body>
+</html>

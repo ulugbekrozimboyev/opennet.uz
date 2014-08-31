@@ -1,0 +1,24 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="confirm_result"></div>
+		<div id="demo"></div>
+		<script type="text/javascript">
+			var r = confirm("Click button");
+			if (r == true) {
+				x = "OK!";
+			} else {
+				x = "Cancel!";
+			}
+			document.getElementById("confirm_result").innerHTML =
+			"Sizning tanlovingiz: " + x;
+			
+			var person = prompt("Ismingizni kiriting", "Harry Potter");
+			if (person != null) {
+				document.getElementById("demo").innerHTML =
+				"Salom " + person + "! Ishlar qanday ?";
+			}
+		</script>
+	</body>
+</html>
