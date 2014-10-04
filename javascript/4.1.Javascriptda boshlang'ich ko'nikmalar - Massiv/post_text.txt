@@ -1,0 +1,72 @@
+Javascriptda boshlang'ich ko'nikmalar - Massiv  (1-qisim)
+
+Siz massiv haqida eshitgan bo'lsangiz kerak, chunki bu tushuncha har bir dasturlash tilida mavjud yoki matematika fanida (matritsa deb balki) eshitgandirsiz. Ko'pchilik <strong>array</strong> atamasini ishlatishni ma`qul ko'radi. Dasturlashda: <strong>missiv bu - ko'p sondagi o'zgaruvchilarni bitta o'zgaruvchi ko'rinishida ifodalash.</strong> Javascriptda u quyidagicha ko'rinishda e`lon qilinadi. <cut>
+<code>var array-name = [item1, item2, ...];
+/* Bu yerda:
+    1. array-name - massiv nomi 
+    2. [] - massiv tanasi, oddiy qilib aytganda uning ichida massiv elementlari yoziladi
+    3. item1 va item2 - massiv elemntlari 
+*/
+</code>
+Javascriptda massiv o'zgaruvchisini e`lon qilishning 2 usuli bo'lib ular quyidagicha:<br />
+<code>var cars = ["Saab", "Volvo", "BMW"];
+var cars = new Array("Saab", "Volvo", "BMW");</code>
+   Ikkalasi ham yangi massivni yaratadi, ikkala usul ham to'g'ri, lekin 1-usulni ishlatish maslahat bariladi. Chunki uning ko'rinishi oddiy, tushunishga oson va yozishga qulay.
+<code>var arr = new Array(2,3); // massiv yaratildi, qiymati: [2, 3]
+arr = new Array(2); // massivda [2] element aniqlandimi ? 
+alert(arr[0]); // yo'q! bizning massiv qiymati: [undefined, undefined]
+</code>
+
+
+    Massivda elementlar sanog'i 0 dan boshlanadi cars[0] degani bu massivdagi 1-elemantga muroajat qilish bo'ladi. Massiv elementlariga muroajat quyidagija amalga oshiradi:
+<code>var name = cars[0]; // massiv elementini boshqa o'zgaruvchiga o'zlashtirish
+cars[1] = "Opel";  // massiv elementini o'zgartirish. Agar massivni 2-lementi aniqlanmagan bo'lsa, bu ifoda massivda qangi element qo'shish bo'ladi.
+</code>
+   Javascriptning boshqa dasturlash tillaridan farqli bir hususiyatlaridan biri massiv elementlari turlari har xil bo'lishi ham mumkin. Javascript bunga imkon beradi, masalan: 
+<code>myArray[0] = Date.now;
+myArray[1] = myFunction;
+myArray[2] = myCars;</code>
+<h4>Massiv ustida amallar va  massivga tegishli funksiylar</h4>
+   Berilagan misollarni albatda o'zingiz ham amalda sinab ko'ring.
+<code>var fruits = ["Banana", "Orange", "Apple", "Mango"];
+alert(fruits.length); // 4
+
+alert(fruits.sort()); // ["Apple", "Banana", "Mango", "Orange"]
+var arr = [ 1, 2, 15 ];
+alert( arr.sort() )   // 1, 15, 2
+
+var index, text = '';
+for(index = 0; index < fruits.length; index++) {
+    text += fruits[index];
+}
+
+var fruits = [] // bo'sh massiv
+fruits[1] = 'Peach'
+fruits[99] = 'Apple'
+alert(fruits.length)  // 100 (lekin massivning 2 ta elementi aniqlangan holos)
+
+var emptyArray = [];
+var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+var emptyArray = [];
+var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+for(index = 0; index < 10; index++){
+    emptyArray[emptyArray.length] = Math.floor(Math.random() * 6) + 1
+}
+for(index = 0; index < emptyArray.length; index++){
+    console.log(days[emptyArray[index]]);
+}
+</code>
+ <em>length</em> - bu yuqorida ko'rganingizdek, massiz uzunligi, elementlar sonini bildiradi.
+ <em>sort()</em> - massiv elemntlarini alfabit bo'yich o'sish tartibida saralaydi. Etibor bergan bo'lsangiz yuqoridagi misollarda '15' '2' dan oldin turib qolgan, chunki saralsh paytida Javascript ularni oddiy char ( char bu bir simvol ) deb hisonlaydi va '15' dagi 1-sinvol '1' '2' bilan solishtiradi. Agarda siz qiymat bo'yicha saralash qilishni hohlasangin unda quyidagi namudandan foydalanishingiz mumkin:
+<code>function compare(a, b) {
+  if (a > b) return 1;
+  else if (a < b) return -1;
+  else return 0;
+}
+
+var arr = [ 1, 2, 15 ];
+
+arr.sort(compare);
+
+alert( arr );   // 1, 2, 15</code>
+  <em>compare</em> funksiya solishtirilishi kerak bo'lgan ikkita qiymatni funksiya o'zgaruvchisi sifatida oladi. Siz <em>compare</em> funksiyani o'zingiz hohlagancha o'zgartirishingiz mumkin. <a href="http://opennet.uz/webprogramming/javascriptda-boshlangich-konikmalar-massiv-haqida-boshlangich-malumotlar-2-qisim.html">Davomi...</a>

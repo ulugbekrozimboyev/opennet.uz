@@ -1,0 +1,65 @@
+Javascriptda boshlang'ich ko'nikmalar - Massiv (2-qisim)
+
+Bu maqoladan oldin <a href="http://opennet.uz/webprogramming/javascriptda-boshlangich-konikmalar-massiv-haqida-boshlangich-malumotlar-1-qisim.html">usbu postni</a> o'qishni tavsiya qilaman.<br />
+<h5>Push va Pop</h5>
+    <em>push</em> - massiv ohiriga yangi element qo'shish
+    <em>pop</em> - massivni ohirgi elementini o'chirish
+<code>var fruits = ["Apple", "Orange", "Donkey"];
+alert(fruits.pop()); // Endi massiv ["Apple","Orange"] qiymatga ega
+alert("Massiv uzunligi: "+fruits.length) // 'Donkey' o'chirilgan
+
+var fruits = ["Apple", "Orange"];
+fruits.push("Peach"); // endi massiv qiymati: ["Apple", "Orange", "Peach"];
+alert("Ohirgi element: "+fruits[fruits.length-1]);
+</code>
+<cut>
+<h5>shift va unshift</h5>
+    <em>shift</em> - massivni 1-elementini o'chirish
+    <em>unshift</em> - massivning boshiga element qo'shish
+<code>var fruits = ["Apple", "Orange"];
+var apple = fruits.shift(); // massiv qiymati ["Orange"]  
+fruits.unshift("Lemon"); // endi esa ["Lemon", "Orange"]
+alert(fruits.length); // 2
+
+// bir vaqtni o'zida birqancha element qo'shish va o'chirish mumkin
+var fruits = ["Apple"];
+fruits.push("Orange","Peach");
+fruits.unshift("Pineapple","Lemon"); 
+alert(fruits); // ["Pineapple", "Lemon", "Apple", "Orange", "Peach"]
+</code>
+
+<img src="http://opennet.uz/uploads/images/00/00/26/2014/10/01/d0b7c2.png"  class="image-center" alt="" />
+Yuqoridagi rasmda aytilyaptiki, shift va unshift sekinroq ishlarkan, pop va push tezroq ishlaydi. Sababi massiv boshiga element qo'shilganida yoki o'chirilganda massivning boshqa barcha elementlarining tartib raqami o'zgartirilishi kerak bo'ladi. Shu holat shift/unshift ishlaganda ko'proq vaqt ketadi.
+
+Massiv elemntlarni ochirishning yana quyidagi amallari ishlatiladi:
+<code>// trim - qirqish
+var arr = [0, 1, 2, 3];
+alert(arr[2]); // 2
+arr.length = 2; // 2 elentdan keyingi alementlarni o'chirib yuboradi (endilikda massiv: [0,1])
+alert(arr[2]); // undefined, chunki 2-elementdan keyingilari ochirildi </code>  
+
+var arr = ["Go", "to", "home"];
+delete arr[1]; // endi arr = ["Go", undefined, "home"]
+alert(arr[1]); // undefined
+// delete faqat berilgab elementni o'chiradi, lekin uni massivdagi o'rni saqlanib qoladi.
+<h5>join va split</h5>
+    <em>join</em> - massiv elementlaridan ',' bilan ajratilgan satr hsil qiladi
+    <em>split</em> - split satrli o'zgaruchilari bilan ishlatiladi, u satrni berilgan o'zgaruvchi ( odatda yagona simvol bo'ladi, lekin ihtiyorish bir sart ham ishlatish mumkin) bo'yich bo'lak;arga ajratadi, natijada massivni qaytaradi.
+<code>var fruits = ["Lemon","Apple","Orange","Peach"];
+var str = fruits.join(', ');
+alert(str); // Lemon, Apple, Orange, Peach
+
+var fruits = "Apple,Orange,Peach";
+var arr = fruits.split(',');
+alert(arr); // ["Apple", "Orange", "Peach"]
+</code>
+
+<h4>Ikki O'lchamli massiv</h4>
+  Javascripda ikki o'lchamli massiv ham ishlatilishi mumkin. U bilan ishlash ham juda oddiy.Ikki o'lchamli massivga misol:
+<code>var twoDimensional = [[1,2,3],[4,5,6]]</code>
+Bu yerda Javascript quyidagidek ishlaydi:
+<code>
+var array1 = [1,2,3];
+var array2 = [4,5,6];
+var twoDimensional = [array1, array1]</code>
+Bu ikkala kodni manosi bir xil. Ikki o'lchamli massivda Amallar ham bir o'lchamli massivnikidek ishlatilishi mumkin. Misol uchun: agarda sizga yuqoridagi massivdan 5 qiymati kerak bo'lsa unda twoDimensional[1][1] deb muroajat qilasiz. 2-qator 2-ustun elementiga muroajat (yoki 2-massivning 2-elementiga muroajat)<br />
